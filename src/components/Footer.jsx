@@ -147,8 +147,8 @@ const Footer = ({ isDark = false }) => {
                         href={link.href}
                         className={`transition-all duration-200 hover:translate-x-2 inline-block ${
                           isDark
-                            ? "text-gray-300 hover:text-purple-400"
-                            : "text-gray-600 hover:text-purple-600"
+                            ? "text-gray-300 hover:text-[#82952F]"
+                            : "text-gray-600 hover:text-[#82952F]"
                         }`}
                       >
                         {link.name}

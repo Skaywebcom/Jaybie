@@ -88,15 +88,15 @@ const Contact = ({ isDark = false }) => {
       onBlur: () => setFocusedField(null),
       placeholder,
       required: true,
-      className: `w-full p-4 rounded-2xl border-2 transition-all duration-300 backdrop-blur-sm ${
+      className: `w-full p-4 rounded-2xl border transition-all duration-300 backdrop-blur-sm ${
         focusedField === name
-          ? `border-purple-500 ${isDark ? "bg-gray-700/50" : "bg-white/90"}`
+          ? `border-[#82952F] ${isDark ? "bg-gray-700/50" : "bg-white/90"}`
           : `${
               isDark
                 ? "bg-gray-700/30 border-gray-600 text-white"
                 : "bg-white/50 border-gray-300 text-gray-900"
             }`
-      } placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/20 ${
+      } placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#82952F] ${
         isTextArea ? "resize-none" : ""
       }`,
     };

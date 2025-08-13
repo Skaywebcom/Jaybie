@@ -1,43 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const skills = [
-  {
-    name: "HTML & CSS",
-    level: 95,
-    icon: "🎨",
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    name: "React JS",
-    level: 90,
-    icon: "⚛️",
-    color: "from-blue-400 to-cyan-500",
-  },
-  {
-    name: "JavaScript",
-    level: 88,
-    icon: "🟨",
-    color: "from-yellow-400 to-orange-500",
-  },
-  {
-    name: "Next JS",
-    level: 85,
-    icon: "⚡",
-    color: "from-gray-700 to-gray-900",
-  },
+  { name: "HTML5", level: 95, logo: "🌐", category: "Frontend" },
+  { name: "CSS3", level: 92, logo: "🎨", category: "Frontend" },
+  { name: "JavaScript", level: 90, logo: "⚡", category: "Frontend" },
+  { name: "TypeScript", level: 85, logo: "📘", category: "Frontend" },
+  { name: "React", level: 93, logo: "⚛️", category: "Frontend" },
+  { name: "Redux", level: 82, logo: "🔄", category: "Frontend" },
+  { name: "Tailwind", level: 88, logo: "💨", category: "Frontend" },
+  { name: "Bootstrap", level: 85, logo: "📦", category: "Frontend" },
+  { name: "Node.js", level: 80, logo: "🟢", category: "Backend" },
+  { name: "MongoDB", level: 78, logo: "🍃", category: "Database" },
+  { name: "Python", level: 75, logo: "🐍", category: "Backend" },
+  { name: "AWS", level: 70, logo: "☁️", category: "Cloud" },
+  { name: "Vercel", level: 88, logo: "▲", category: "Deployment" },
+  { name: "Github", level: 90, logo: "📊", category: "Tools" },
+];
+
+const stats = [
+  { value: 5, label: "years of experience", suffix: "+", icon: "🚀" },
+  { value: 50, label: "projects completed", suffix: "+", icon: "💼" },
+  { value: 40, label: "happy clients", suffix: "+", icon: "😊" },
 ];
 
 const About = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedStats, setAnimatedStats] = useState([0, 0, 0]);
+  const [activeSkillIndex, setActiveSkillIndex] = useState(null);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
   const sectionRef = useRef(null);
-  const statsRef = useRef([]);
 
-  const stats = [
-    { value: 5, label: "years of experience", suffix: "+", icon: "🚀" },
-    { value: 50, label: "projects completed", suffix: "+", icon: "💼" },
-    { value: 40, label: "happy clients", suffix: "+", icon: "😊" },
-  ];
+  const categories = [...new Set(skills.map((skill) => skill.category))];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,7 +42,6 @@ const About = ({ isDark }) => {
       },
       { threshold: 0.3 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -76,25 +68,61 @@ const About = ({ isDark }) => {
       ref={sectionRef}
       id="about"
       className={`py-20 px-6 relative overflow-hidden ${
-        isDark ? " text-white" : " text-gray-900"
+        isDark ? "bg-gray-900 text-white" : "bg-[#F4F2D3] text-gray-900"
       }`}
     >
+      {/* Animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className={`absolute top-20 left-10 w-64 h-64 ${
+            isDark ? "bg-gray-800/20" : "bg-yellow-100/50"
+          } rounded-full blur-3xl animate-pulse`}
+        ></div>
+        <div
+          className={`absolute bottom-20 right-10 w-80 h-80 ${
+            isDark ? "bg-gray-700/20" : "bg-yellow-200/50"
+          } rounded-full blur-3xl animate-pulse`}
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 ${
+            isDark ? "bg-gray-800/10" : "bg-yellow-100/30"
+          } rounded-full blur-3xl animate-pulse`}
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
+
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="text-[#82952F] text-sm font-semibold uppercase tracking-wider">
+            <span
+              className={`${
+                isDark ? "text-gray-400" : ""
+              } text-sm font-semibold uppercase tracking-wider animate-fade-in`}
+              style={{ color: isDark ? "#82952F" : "#82952F" }}
+            >
               Get To Know More
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-[#82952F]">Me</span>
+            About{" "}
+            <span
+              className={`${isDark ? "text-gray-300" : ""} relative`}
+              style={{ color: isDark ? "#82952F" : "#82952F" }}
+            >
+              Me
+              <div
+                className={`absolute -bottom-2 left-0 w-full h-1 ${
+                  isDark ? "bg-[#82952F]" : "bg-[#82952F]"
+                } rounded-full animate-expand`}
+              ></div>
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-[#82952F] mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left column - content */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left column */}
           <div className="space-y-8">
             {[
               "I am an experienced Frontend Developer with over 5 years of professional expertise in the field.",
@@ -103,25 +131,32 @@ const About = ({ isDark }) => {
             ].map((text, index) => (
               <div
                 key={index}
-                className={`p-6 rounded-2xl backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:-translate-y-1 ${
+                className={`group p-6 rounded-2xl backdrop-blur-sm transition-all duration-700 hover:scale-105 hover:-translate-y-1 ${
                   isDark
-                    ? "bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30"
-                    : "bg-white/70 border border-gray-200/50 hover:border-blue-500/30"
-                } hover:shadow-xl hover:shadow-blue-500/10`}
+                    ? "bg-gray-800/40 border border-gray-700/30 hover:border-gray-500/50 hover:bg-gray-800/60"
+                    : "bg-white/80 border border-gray-300/30 hover:border-gray-500/50 hover:bg-white/90"
+                } hover:shadow-2xl`}
                 style={{
                   animationDelay: `${index * 0.2}s`,
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                  transition: "all 0.6s ease-out",
+                  transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
               >
-                <p
-                  className={`text-lg leading-relaxed ${
-                    isDark ? "text-gray-300" : "text-gray-600"
-                  }`}
-                >
-                  {text}
-                </p>
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`w-2 h-2 rounded-full mt-3 ${
+                      isDark ? "bg-gray-500" : "bg-gray-800"
+                    } group-hover:scale-150 transition-transform duration-300`}
+                  ></div>
+                  <p
+                    className={`text-lg leading-relaxed ${
+                      isDark ? "text-gray-300" : "text-gray-800"
+                    }`}
+                  >
+                    {text}
+                  </p>
+                </div>
               </div>
             ))}
 
@@ -130,29 +165,32 @@ const About = ({ isDark }) => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  ref={(el) => (statsRef.current[index] = el)}
-                  className={`group text-center p-6 rounded-2xl transition-all duration-500 hover:scale-110 hover:-translate-y-2 cursor-pointer ${
+                  className={`group text-center p-6 rounded-2xl transition-all duration-700 hover:scale-110 hover:-translate-y-3 cursor-pointer ${
                     isDark
-                      ? "bg-gray-800/70 border border-gray-700/50 hover:border-blue-500/50"
-                      : "bg-white/80 border border-gray-200/50 hover:border-blue-500/50"
-                  } hover:shadow-xl hover:shadow-blue-500/20`}
+                      ? "bg-gray-800/50 border border-gray-700/30 hover:border-gray-500/50 hover:bg-gray-800/70"
+                      : "bg-white/90 border border-gray-300/30 hover:border-gray-500/50 hover:bg-white"
+                  } hover:shadow-2xl`}
                   style={{
                     animationDelay: `${0.6 + index * 0.1}s`,
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                    transition: "all 0.6s ease-out",
+                    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
                   }}
                 >
-                  <div className="text-4xl mb-2 group-hover:scale-125 transition-transform duration-300">
+                  <div className="text-4xl mb-2 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl font-bold text-[#82952F] mb-1">
+                  <div
+                    className={`text-3xl font-bold mb-1 relative`}
+                    style={{ color: isDark ? undefined : "#82952F" }}
+                  >
                     {animatedStats[index]}
                     {stat.suffix}
+                    <div className="absolute inset-0 animate-pulse-glow"></div>
                   </div>
                   <div
                     className={`text-sm font-medium ${
-                      isDark ? "text-gray-400" : "text-gray-600"
+                      isDark ? "text-gray-400" : "text-gray-700"
                     }`}
                   >
                     {stat.label}
@@ -162,113 +200,110 @@ const About = ({ isDark }) => {
             </div>
           </div>
 
-          {/* Right column - skills */}
-          <div className="space-y-8">
-            <div
-              className={`p-8 rounded-3xl backdrop-blur-sm ${
-                isDark
-                  ? "bg-gray-800/50 border border-gray-700/50"
-                  : "bg-white/70 border border-gray-200/50"
-              } shadow-xl`}
-            >
-              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                <span className="text-3xl">🛠️</span>
-                Technical Skills
-              </h3>
+          {/* Right column: Skills */}
+          <div className="flex items-center">
+            <div className="w-full">
+              <div
+                className={`p-8 rounded-3xl backdrop-blur-sm ${
+                  isDark
+                    ? "bg-gray-800/40 border border-gray-700/30"
+                    : "bg-white/90 border border-gray-300/30"
+                } shadow-2xl h-full flex flex-col`}
+              >
+                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <span className="text-3xl animate-bounce">🛠️</span>
+                  <span className="relative">
+                    Technical Skills
+                    <div
+                      className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                        isDark ? "bg-gray-500" : "bg-gray-800"
+                      } animate-expand-width`}
+                    ></div>
+                  </span>
+                </h3>
 
-              <div className="space-y-8">
-                {skills.map((skill, index) => (
-                  <div
-                    key={skill.name}
-                    className="group"
-                    style={{
-                      animationDelay: `${0.8 + index * 0.1}s`,
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible
-                        ? "translateX(0)"
-                        : "translateX(50px)",
-                      transition: "all 0.6s ease-out",
-                    }}
-                  >
-                    {/* Skill Header */}
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">
-                          {skill.icon}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {categories.map((category, index) => (
+                    <button
+                      key={category}
+                      onMouseEnter={() => setHoveredCategory(category)}
+                      onMouseLeave={() => setHoveredCategory(null)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                        hoveredCategory === category
+                          ? isDark
+                            ? "bg-gray-700 text-gray-200 scale-105"
+                            : "bg-[#82952F] text-white scale-105"
+                          : isDark
+                          ? "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50"
+                          : "bg-gray-200/50 text-gray-700 hover:bg-[#82952F]/80 hover:text-white"
+                      }`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 flex-1">
+                  {skills.map((skill, index) => (
+                    <div
+                      key={skill.name}
+                      className={`group relative p-3 rounded-lg transition-all duration-500 cursor-pointer ${
+                        hoveredCategory && hoveredCategory !== skill.category
+                          ? "opacity-40 scale-95"
+                          : "opacity-100 scale-100"
+                      } ${
+                        isDark
+                          ? "bg-gray-800/30 border border-gray-700/20 hover:border-gray-500/40 hover:bg-gray-800/60"
+                          : "bg-gray-100/50 border border-gray-300/20 hover:border-gray-500/40 hover:bg-white/80"
+                      } hover:scale-105 hover:-translate-y-1`}
+                      onMouseEnter={() => setActiveSkillIndex(index)}
+                      onMouseLeave={() => setActiveSkillIndex(null)}
+                      style={{
+                        animationDelay: `${0.8 + index * 0.05}s`,
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible
+                          ? "translateX(0)"
+                          : "translateX(30px)",
+                        transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                      }}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+                          {skill.logo}
                         </span>
-                        <span className="font-semibold text-lg">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span
-                        className={`text-lg font-bold bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
-                      >
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="relative">
-                      <div
-                        className={`w-full h-4 rounded-full overflow-hidden ${
-                          isDark ? "bg-gray-700" : "bg-gray-200"
-                        }`}
-                      >
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-20 rounded-full`}
-                        ></div>
-
-                        <div
-                          className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-2000 ease-out relative overflow-hidden`}
-                          style={{
-                            width: isVisible ? `${skill.level}%` : "0%",
-                            transitionDelay: `${1 + index * 0.2}s`,
-                          }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shine"></div>
-                          <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        <div className="flex-1">
+                          <div className="font-semibold text-xs text-gray-800">
+                            {skill.name}
+                          </div>
+                          <div className="text-xs text-gray-600">
+                            {skill.category}
+                          </div>
+                        </div>
+                        <div className="text-xs font-bold text-gray-700">
+                          {skill.level}%
                         </div>
                       </div>
 
-                      {/* Skill level indicator */}
-                      <div
-                        className="absolute -top-8 bg-gray-900 text-white px-2 py-1 rounded text-xs font-bold transition-all duration-2000"
-                        style={{
-                          left: isVisible ? `${skill.level}%` : "0%",
-                          transform: "translateX(-50%)",
-                          transitionDelay: `${1.5 + index * 0.2}s`,
-                          opacity: isVisible ? 1 : 0,
-                        }}
-                      >
-                        {skill.level}%
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-gray-900"></div>
+                      <div className="relative">
+                        <div className="w-full h-1.5 rounded-full overflow-hidden bg-gray-300/50">
+                          <div
+                            className="h-full rounded-full bg-gray-500 relative overflow-hidden"
+                            style={{
+                              width: isVisible ? `${skill.level}%` : "0%",
+                              transition: "width 1s ease-out",
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Info Card */}
-            <div
-              className={`p-6 rounded-2xl backdrop-blur-sm ${
-                isDark
-                  ? "bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/20"
-                  : "bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-500/20"
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <div className="text-4xl animate-bounce">🎯</div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1">Always Learning</h4>
-                  <p
-                    className={`text-sm ${
-                      isDark ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
-                    Continuously expanding my skillset with the latest
-                    technologies and best practices
-                  </p>
+                      {activeSkillIndex === index && (
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-border"></div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -277,32 +312,20 @@ const About = ({ isDark }) => {
       </div>
 
       {/* Animations */}
-      <style jsx>{`
-        @keyframes gradient {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        @keyframes shine {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-gradient {
-          background-size: 300% 300%;
-          animation: gradient 3s ease infinite;
-        }
-        .animate-shine {
-          animation: shine 2s ease-in-out infinite;
-          animation-delay: 0.5s;
-        }
+      <style>{`
+        @keyframes fade-in { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes expand { from { width: 0; } to { width: 100%; } }
+        @keyframes expand-width { from { width: 0; } to { width: 100%; } }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        @keyframes pulse-glow { 0%, 100% { opacity: 0; } 50% { opacity: 0.1; } }
+        @keyframes pulse-border { 0%, 100% { opacity: 0; } 50% { opacity: 0.3; } }
+
+        .animate-fade-in { animation: fade-in 0.6s ease-out; }
+        .animate-expand { animation: expand 1s ease-out 0.5s both; }
+        .animate-expand-width { animation: expand-width 1s ease-out 1s both; }
+        .animate-shimmer { animation: shimmer 2s ease-in-out infinite; animation-delay: 1s; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .animate-pulse-border { animation: pulse-border 2s ease-in-out infinite; }
       `}</style>
     </section>
   );

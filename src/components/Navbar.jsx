@@ -117,7 +117,7 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
                 }`}
               >
                 {activeSection === item.id && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-sm"></div>
+                  <div className="absolute inset-0 bg-[#82952F]/20 rounded-full blur-sm"></div>
                 )}
                 <span className="relative z-10">{item.label}</span>
               </button>
@@ -199,7 +199,7 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
                 </div>
               </button>
             ))}
-            <button className="mt-4 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center gap-2">
+            <button className="mt-4 w-full bg-[#82952F]  text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center gap-2">
               <span>Connect With Me</span>
               <ExternalLink size={16} />
             </button>

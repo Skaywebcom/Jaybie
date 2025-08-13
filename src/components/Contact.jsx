@@ -96,7 +96,7 @@ const Contact = ({ isDark = false }) => {
                 ? "bg-gray-700/30 border-gray-600 text-white"
                 : "bg-white/50 border-gray-300 text-gray-900"
             }`
-      } placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-[#82952F] ${
+      } placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#82952F] ${
         isTextArea ? "resize-none" : ""
       }`,
     };

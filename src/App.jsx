@@ -6,7 +6,6 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ParticlesBackground from "./components/ParticlesBackground";
 
 const App = () => {
   const [isDark, setIsDark] = useState(false);
@@ -20,8 +19,10 @@ const App = () => {
       className={`min-h-screen transition-colors duration-300 relative z-0 ${
         isDark ? "dark bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
+      style={{
+        backgroundColor: isDark ? "#1a1a1a" : "#F4F2D3", // light mode uses your custom color
+      }}
     >
-      <ParticlesBackground isDark={isDark} />
       <Navbar
         isDark={isDark}
         toggleTheme={toggleTheme}

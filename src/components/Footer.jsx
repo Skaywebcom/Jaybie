@@ -14,15 +14,10 @@ import {
 const Footer = ({ isDark = false }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
-    };
-
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     const timer = setInterval(() => {
@@ -30,11 +25,9 @@ const Footer = ({ isDark = false }) => {
     }, 1000);
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
       clearInterval(timer);
     };
   }, []);
@@ -90,36 +83,8 @@ const Footer = ({ isDark = false }) => {
   ];
 
   return (
-    <footer
-      className={`relative overflow-hidden ${
-        isDark ? "bg-gray-900" : "bg-gray-100"
-      }`}
-    >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute w-64 h-64 rounded-full opacity-5 blur-3xl transition-all duration-1000"
-          style={{
-            background: `radial-gradient(circle, ${
-              isDark ? "#8b5cf6" : "#3b82f6"
-            }, transparent)`,
-            left: mousePosition.x - 100,
-            top: mousePosition.y - 100,
-          }}
-        />
-        <div
-          className={`absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-10 blur-2xl ${
-            isDark ? "bg-purple-500" : "bg-blue-500"
-          }`}
-        />
-        <div
-          className={`absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-10 blur-2xl ${
-            isDark ? "bg-cyan-500" : "bg-pink-500"
-          }`}
-        />
-      </div>
-
-      <div className="relative">
+    <footer className="relative">
+      <div className="relative z-10">
         {/* Main footer content */}
         <div className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
@@ -127,9 +92,7 @@ const Footer = ({ isDark = false }) => {
               {/* Brand section */}
               <div className="lg:col-span-2 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`p-3 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg`}
-                  >
+                  <div className="p-3 rounded-xl bg-[#82952F]  shadow-lg">
                     <Code className="w-6 h-6 text-white" />
                   </div>
                   <h3
@@ -137,7 +100,7 @@ const Footer = ({ isDark = false }) => {
                       isDark ? "text-white" : "text-gray-900"
                     }`}
                   >
-                    Jaybie
+                    JB Web Solution
                   </h3>
                 </div>
                 <p
@@ -159,10 +122,10 @@ const Footer = ({ isDark = false }) => {
                   }`}
                 >
                   <div className="relative">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+                    <div className="w-2 h-2 bg-[#82952F] rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-[#82952F] rounded-full animate-ping"></div>
                   </div>
-                  <span className="text-sm font-medium">
+                  <span className="text-sm font-medium text-[#82952F]">
                     Available for freelance
                   </span>
                 </div>
@@ -278,39 +241,36 @@ const Footer = ({ isDark = false }) => {
             isDark ? "border-gray-800" : "border-gray-200"
           } py-8 px-6`}
         >
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              {/* Copyright */}
-              <div
-                className={`flex items-center gap-2 ${
-                  isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                <span>
-                  © {new Date().getFullYear()} Jaybie. All rights reserved.
-                </span>
-                <span className="hidden md:inline">•</span>
-                <div className="flex items-center gap-1">
-                  <span>Made with</span>
-                  <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-                  <span>and</span>
-                  <Coffee className="w-4 h-4 text-amber-500" />
-                </div>
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div
+              className={`flex items-center gap-2 ${
+                isDark ? "text-gray-400" : "text-gray-600"
+              }`}
+            >
+              <span>
+                © {new Date().getFullYear()} JB Web Solution. All rights
+                reserved.
+              </span>
+              <span className="hidden md:inline">•</span>
+              <div className="flex items-center gap-1">
+                <span>Made with</span>
+                <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+                <span>and</span>
+                <Coffee className="w-4 h-4 text-amber-500" />
               </div>
+            </div>
 
-              {/* Performance indicator */}
-              <div
-                className={`flex items-center gap-3 text-sm ${
-                  isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-yellow-500" />
-                  <span>Fast & Optimized</span>
-                </div>
-                <span className="hidden md:inline">•</span>
-                <span>Built with React</span>
+            <div
+              className={`flex items-center gap-3 text-sm ${
+                isDark ? "text-gray-400" : "text-gray-600"
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-yellow-500" />
+                <span>Fast & Optimized</span>
               </div>
+              <span className="hidden md:inline">•</span>
+              <span>Built with React</span>
             </div>
           </div>
         </div>
@@ -334,22 +294,6 @@ const Footer = ({ isDark = false }) => {
           <ArrowUp size={20} />
         </button>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
     </footer>
   );
 };

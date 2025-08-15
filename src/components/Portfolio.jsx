@@ -91,7 +91,7 @@ const Portfolio = ({ isDark = false }) => {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            <span className="text-[#82952F]">Latest Projects</span>
+            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">Latest Projects</span>
           </h2>
           <p
             className={`text-xl max-w-2xl mx-auto ${

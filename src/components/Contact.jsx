@@ -136,7 +136,7 @@ const Contact = ({ isDark = false }) => {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            <span className="text-[#82952F]">Get In Touch</span>
+            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">Get In Touch</span>
           </h2>
           <p
             className={`text-xl max-w-2xl mx-auto ${

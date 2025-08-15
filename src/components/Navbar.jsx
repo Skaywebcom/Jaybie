@@ -78,18 +78,37 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <div className="relative group">
-            <div className="absolute -inset-1 bg-[#82952F] rounded-lg blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
-            <div
-              className={`relative font-bold transition-all duration-300 ${
-                scrolled ? "text-xl" : "text-2xl"
-              }`}
-            >
-              <span className="bg-[#82952F] bg-clip-text text-transparent">
-                JB
-              </span>{" "}
-              <span className={isDark ? "text-white" : "text-gray-900"}>
-                Web Solution
+            <div className="absolute -inset-1 rounded-lg opacity-0"></div>
+
+            <div className="relative flex items-center">
+              <span
+                className="transition-all duration-300 font-extrabold tracking-wide"
+                style={{
+                  fontSize: "2rem", // same size as before
+                  background:
+                    "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "gradientShift 4s ease infinite",
+                }}
+              >
+                JB Web Solution
               </span>
+
+              <style jsx>{`
+                @keyframes gradientShift {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+              `}</style>
             </div>
           </div>
 
@@ -148,10 +167,30 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               onClick={() =>
                 window.open("https://wa.me/639193741599", "_blank")
               }
-              className="hidden md:flex items-center gap-2 bg-[#82952F] text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-all"
+              className="hidden md:flex items-center gap-2 text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-all relative overflow-hidden group"
+              style={{
+                background:
+                  "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                backgroundSize: "200% 200%",
+                animation: "gradientShift 4s ease infinite",
+              }}
             >
-              <Handshake size={18} />
-              Hire Me
+              <style jsx>{`
+                @keyframes gradientShift {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+              `}</style>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <Handshake size={18} className="relative z-10" />
+              <span className="relative z-10">Hire Me</span>
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -199,9 +238,18 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
                 </div>
               </button>
             ))}
-            <button className="mt-4 w-full bg-[#82952F]  text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center gap-2">
-              <span>Connect With Me</span>
-              <ExternalLink size={16} />
+            <button
+              className="mt-4 w-full text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center gap-2 relative overflow-hidden group"
+              style={{
+                background:
+                  "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                backgroundSize: "200% 200%",
+                animation: "gradientShift 4s ease infinite",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <span className="relative z-10">Connect With Me</span>
+              <ExternalLink size={16} className="relative z-10" />
             </button>
           </div>
         )}

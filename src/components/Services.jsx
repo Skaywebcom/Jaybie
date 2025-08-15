@@ -260,7 +260,7 @@ const Services = ({ isDark }) => {
             style={{ animationDelay: "0.2s" }}
           >
             My{" "}
-            <span className="text-[#82952F] relative">
+            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">
               Services
               <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#82952F] to-[#6d7d28] rounded-full animate-expand"></div>
             </span>

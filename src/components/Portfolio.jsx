@@ -75,12 +75,12 @@ const Portfolio = ({ isDark = false }) => {
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles
               className={`w-6 h-6 ${
-                isDark ? "text-[#82952F]" : "text[#82952F]"
+                isDark ? "text-blue-400" : "text-blue-600"
               }`}
             />
             <span
               className={`text-sm font-semibold uppercase tracking-wider ${
-                isDark ? "text-[#82952F]" : "text-[#82952F]"
+                isDark ? "text-blue-400" : "text-blue-600"
               }`}
             >
               Featured Work
@@ -88,14 +88,14 @@ const Portfolio = ({ isDark = false }) => {
           </div>
           <h2
             className={`text-5xl md:text-6xl font-black mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-slate-900"
             }`}
           >
-            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">Latest Projects</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">Latest Projects</span>
           </h2>
           <p
             className={`text-xl max-w-2xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-slate-300" : "text-slate-600"
             }`}
           >
             Showcasing cutting-edge solutions built with modern technologies
@@ -118,9 +118,9 @@ const Portfolio = ({ isDark = false }) => {
             >
               <div
                 className={`relative overflow-hidden rounded-3xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2 ${
-                  isDark ? "bg-gray-800" : "bg-white"
+                  isDark ? "bg-slate-800" : "bg-white"
                 } shadow-xl hover:shadow-2xl backdrop-blur-lg border ${
-                  isDark ? "border-gray-700" : "border-gray-100"
+                  isDark ? "border-slate-700" : "border-slate-100"
                 }`}
               >
                 {/* Image */}
@@ -141,7 +141,7 @@ const Portfolio = ({ isDark = false }) => {
 
                   {/* Fallback gradient */}
                   <div
-                    className="hidden absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500"
+                    className="hidden absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500"
                     style={{ display: "none" }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -165,7 +165,7 @@ const Portfolio = ({ isDark = false }) => {
                     <h3 className="text-2xl font-bold text-white mb-4">
                       {project.title}
                     </h3>
-                    <p className="text-gray-200 mb-6 text-sm leading-relaxed">
+                    <p className="text-slate-200 mb-6 text-sm leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4 justify-center">
@@ -217,6 +217,16 @@ const Portfolio = ({ isDark = false }) => {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        
+        @keyframes gradient-x {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        .animate-gradient-x { 
+          background-size: 200% 200%;
+          animation: gradient-x 3s ease infinite; 
         }
       `}</style>
     </section>

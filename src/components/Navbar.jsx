@@ -64,8 +64,8 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
         className={`fixed w-full z-50 transition-all duration-500 ${
           scrolled
             ? isDark
-              ? "py-2 bg-transparent border-b border-gray-700/50 shadow-lg"
-              : "py-2 bg-transparent border-b border-gray-200/50 shadow-lg"
+              ? "py-2 bg-transparent border-b border-slate-700/50 shadow-lg"
+              : "py-2 bg-transparent border-b border-slate-200/50 shadow-lg"
             : isDark
             ? "py-4 bg-transparent"
             : "py-4 bg-transparent"
@@ -84,9 +84,9 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               <span
                 className="transition-all duration-300 font-extrabold tracking-wide"
                 style={{
-                  fontSize: "2rem", // same size as before
+                  fontSize: "2rem",
                   background:
-                    "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                    "linear-gradient(135deg, #2563eb 0%, #7c3aed 25%, #2563eb 50%, #1d4ed8 75%, #2563eb 100%)",
                   backgroundSize: "200% 200%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -116,8 +116,8 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
           <div
             className={`hidden md:flex items-center space-x-1 px-4 py-2 rounded-full ${
               isDark
-                ? "bg-gray-800/50 border border-gray-700/50"
-                : "bg-gray-50/80 border border-gray-200/50"
+                ? "bg-slate-800/50 border border-slate-700/50"
+                : "bg-white/80 border border-slate-200/50"
             }`}
             style={{ backdropFilter: "blur(10px)" }}
           >
@@ -128,15 +128,15 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all group ${
                   activeSection === item.id
                     ? isDark
-                      ? "text-[#82952F]"
-                      : "text-[#82952F]"
+                      ? "text-blue-400"
+                      : "text-blue-600"
                     : isDark
-                    ? "text-gray-300 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-slate-300 hover:text-white"
+                    : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {activeSection === item.id && (
-                  <div className="absolute inset-0 bg-[#82952F]/20 rounded-full blur-sm"></div>
+                  <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-sm"></div>
                 )}
                 <span className="relative z-10">{item.label}</span>
               </button>
@@ -150,15 +150,15 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               onClick={toggleTheme}
               className={`relative p-3 rounded-full ${
                 isDark
-                  ? "bg-gray-800/80 hover:bg-gray-700/80 border border-gray-700/50"
-                  : "bg-gray-100/80 hover:bg-gray-200/80 border border-gray-200/50"
+                  ? "bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/50"
+                  : "bg-white/80 hover:bg-slate-50/80 border border-slate-200/50"
               }`}
               style={{ backdropFilter: "blur(10px)" }}
             >
               {isDark ? (
                 <Sun size={18} className="text-yellow-400" />
               ) : (
-                <Moon size={18} />
+                <Moon size={18} className="text-slate-600" />
               )}
             </button>
 
@@ -170,7 +170,7 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               className="hidden md:flex items-center gap-2 text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-all relative overflow-hidden group"
               style={{
                 background:
-                  "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                  "linear-gradient(135deg, #2563eb 0%, #7c3aed 25%, #2563eb 50%, #1d4ed8 75%, #2563eb 100%)",
                 backgroundSize: "200% 200%",
                 animation: "gradientShift 4s ease infinite",
               }}
@@ -198,8 +198,8 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               onClick={toggleMenu}
               className={`md:hidden p-3 rounded-full ${
                 isDark
-                  ? "bg-gray-800/80 hover:bg-gray-700/80 border border-gray-700/50"
-                  : "bg-gray-100/80 hover:bg-gray-200/80 border border-gray-200/50"
+                  ? "bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/50"
+                  : "bg-white/80 hover:bg-slate-50/80 border border-slate-200/50"
               }`}
               style={{ backdropFilter: "blur(10px)" }}
             >
@@ -213,8 +213,8 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
           <div
             className={`md:hidden p-6 space-y-2 ${
               isDark
-                ? "bg-gray-800/90 border-t border-gray-700/50"
-                : "bg-white/90 border-t border-gray-200/50"
+                ? "bg-slate-900/90 border-t border-slate-700/50"
+                : "bg-white/90 border-t border-slate-200/50"
             }`}
             style={{ backdropFilter: "blur(20px)" }}
           >
@@ -225,11 +225,11 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
                 className={`block w-full text-left px-4 py-3 rounded-xl font-medium ${
                   activeSection === item.id
                     ? isDark
-                      ? "text-[#82952F] bg-blue-500/10"
-                      : "text-[#82952F] bg-blue-50"
+                      ? "text-blue-400 bg-blue-500/10"
+                      : "text-blue-600 bg-blue-50"
                     : isDark
-                    ? "text-gray-300 hover:text-white hover:bg-gray-700/50"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -242,7 +242,7 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
               className="mt-4 w-full text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center gap-2 relative overflow-hidden group"
               style={{
                 background:
-                  "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #6B7A26 75%, #82952F 100%)",
+                  "linear-gradient(135deg, #2563eb 0%, #7c3aed 25%, #2563eb 50%, #1d4ed8 75%, #2563eb 100%)",
                 backgroundSize: "200% 200%",
                 animation: "gradientShift 4s ease infinite",
               }}

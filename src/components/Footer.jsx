@@ -92,12 +92,12 @@ const Footer = ({ isDark = false }) => {
               {/* Brand section */}
               <div className="lg:col-span-2 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-[#82952F]  shadow-lg">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg">
                     <Code className="w-6 h-6 text-white" />
                   </div>
                   <h3
                     className={`text-2xl font-bold ${
-                      isDark ? "text-white" : "text-gray-900"
+                      isDark ? "text-white" : "text-slate-900"
                     }`}
                   >
                     JB Web Solution
@@ -105,7 +105,7 @@ const Footer = ({ isDark = false }) => {
                 </div>
                 <p
                   className={`text-lg leading-relaxed max-w-md ${
-                    isDark ? "text-gray-300" : "text-gray-600"
+                    isDark ? "text-slate-300" : "text-slate-600"
                   }`}
                 >
                   Crafting digital experiences with modern technologies.
@@ -122,10 +122,10 @@ const Footer = ({ isDark = false }) => {
                   }`}
                 >
                   <div className="relative">
-                    <div className="w-2 h-2 bg-[#82952F] rounded-full animate-pulse"></div>
-                    <div className="absolute inset-0 w-2 h-2 bg-[#82952F] rounded-full animate-ping"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
                   </div>
-                  <span className="text-sm font-medium text-[#82952F]">
+                  <span className="text-sm font-medium text-green-600">
                     Available for freelance
                   </span>
                 </div>
@@ -135,7 +135,7 @@ const Footer = ({ isDark = false }) => {
               <div>
                 <h4
                   className={`text-lg font-semibold mb-6 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-slate-900"
                   }`}
                 >
                   Quick Links
@@ -147,8 +147,8 @@ const Footer = ({ isDark = false }) => {
                         href={link.href}
                         className={`transition-all duration-200 hover:translate-x-2 inline-block ${
                           isDark
-                            ? "text-gray-300 hover:text-[#82952F]"
-                            : "text-gray-600 hover:text-[#82952F]"
+                            ? "text-slate-300 hover:text-blue-400"
+                            : "text-slate-600 hover:text-blue-600"
                         }`}
                       >
                         {link.name}
@@ -162,7 +162,7 @@ const Footer = ({ isDark = false }) => {
               <div>
                 <h4
                   className={`text-lg font-semibold mb-6 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-slate-900"
                   }`}
                 >
                   Tech Stack
@@ -173,8 +173,8 @@ const Footer = ({ isDark = false }) => {
                       key={index}
                       className={`px-3 py-1 text-xs font-medium rounded-full transition-all duration-200 hover:scale-105 ${
                         isDark
-                          ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          ? "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                          : "bg-slate-200 text-slate-700 hover:bg-slate-300"
                       }`}
                     >
                       {skill}
@@ -186,14 +186,14 @@ const Footer = ({ isDark = false }) => {
                 <div className="mt-6">
                   <p
                     className={`text-sm ${
-                      isDark ? "text-gray-400" : "text-gray-500"
+                      isDark ? "text-slate-400" : "text-slate-500"
                     }`}
                   >
                     Philippines Time
                   </p>
                   <p
                     className={`text-lg font-mono ${
-                      isDark ? "text-white" : "text-gray-900"
+                      isDark ? "text-white" : "text-slate-900"
                     }`}
                   >
                     {currentTime.toLocaleTimeString("en-SG", {
@@ -212,8 +212,8 @@ const Footer = ({ isDark = false }) => {
               <div
                 className={`flex gap-4 p-4 rounded-2xl backdrop-blur-sm ${
                   isDark
-                    ? "bg-gray-800/50 border border-gray-700"
-                    : "bg-white/70 border border-gray-200"
+                    ? "bg-slate-800/50 border border-slate-700"
+                    : "bg-white/70 border border-slate-200"
                 }`}
               >
                 {socialLinks.map((social, index) => (
@@ -223,8 +223,8 @@ const Footer = ({ isDark = false }) => {
                     aria-label={social.label}
                     className={`p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${
                       isDark
-                        ? "bg-gray-700/50 text-gray-400 hover:bg-gray-600"
-                        : "bg-gray-100/70 text-gray-600 hover:bg-white"
+                        ? "bg-slate-700/50 text-slate-400 hover:bg-slate-600"
+                        : "bg-slate-100/70 text-slate-600 hover:bg-white"
                     } ${social.color} hover:shadow-lg`}
                   >
                     <social.icon size={20} />
@@ -238,13 +238,13 @@ const Footer = ({ isDark = false }) => {
         {/* Bottom bar */}
         <div
           className={`border-t ${
-            isDark ? "border-gray-800" : "border-gray-200"
+            isDark ? "border-slate-800" : "border-slate-200"
           } py-8 px-6`}
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div
               className={`flex items-center gap-2 ${
-                isDark ? "text-gray-400" : "text-gray-600"
+                isDark ? "text-slate-400" : "text-slate-600"
               }`}
             >
               <span>
@@ -262,7 +262,7 @@ const Footer = ({ isDark = false }) => {
 
             <div
               className={`flex items-center gap-3 text-sm ${
-                isDark ? "text-gray-400" : "text-gray-600"
+                isDark ? "text-slate-400" : "text-slate-600"
               }`}
             >
               <div className="flex items-center gap-2">
@@ -284,10 +284,10 @@ const Footer = ({ isDark = false }) => {
               : "opacity-0 translate-y-10 pointer-events-none"
           } ${
             isDark
-              ? "bg-gray-800 text-white hover:bg-gray-700"
-              : "bg-white text-gray-900 hover:bg-gray-100"
+              ? "bg-slate-800 text-white hover:bg-slate-700"
+              : "bg-white text-slate-900 hover:bg-slate-100"
           } hover:scale-110 hover:shadow-xl border ${
-            isDark ? "border-gray-700" : "border-gray-200"
+            isDark ? "border-slate-700" : "border-slate-200"
           }`}
           aria-label="Scroll to top"
         >

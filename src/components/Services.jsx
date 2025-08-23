@@ -93,12 +93,12 @@ const Services = ({ isDark }) => {
 
   const getGradientVariant = (index) => {
     const variants = [
-      "from-[#82952F] to-[#6d7d28]",
-      "from-[#82952F] to-[#9fa839]",
-      "from-[#6d7d28] to-[#82952F]",
-      "from-[#9fa839] to-[#82952F]",
-      "from-[#82952F] to-[#5d6b20]",
-      "from-[#5d6b20] to-[#9fa839]",
+      "from-blue-600 to-purple-600",
+      "from-purple-600 to-cyan-500",
+      "from-cyan-500 to-blue-600",
+      "from-blue-600 to-indigo-600",
+      "from-indigo-600 to-purple-600",
+      "from-purple-600 to-pink-500",
     ];
     return variants[index % variants.length];
   };
@@ -147,8 +147,8 @@ const Services = ({ isDark }) => {
         <div
           className={`relative overflow-hidden p-8 rounded-3xl transition-all duration-500 cursor-pointer group-hover:scale-105 group-hover:-translate-y-2 ${
             isDark
-              ? "bg-gray-800/50 border border-gray-700/50 hover:border-[#82952F]/40"
-              : "bg-white/70 border border-gray-200/50 hover:border-[#82952F]/50"
+              ? "bg-slate-800/50 border border-slate-700/50 hover:border-blue-500/40"
+              : "bg-white/70 border border-slate-200/50 hover:border-blue-500/50"
           } backdrop-blur-sm`}
           style={{
             transform: isHovered
@@ -157,13 +157,13 @@ const Services = ({ isDark }) => {
                 }px) scale(1.05) translateY(-8px)`
               : "scale(1) translateY(0)",
             boxShadow: isHovered
-              ? `0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(130, 149, 47, 0.2)`
+              ? `0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(37, 99, 235, 0.2)`
               : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
           }}
         >
           {/* Background gradient overlay */}
           <div
-            className={`absolute inset-0 bg-gradient-to-br from-[#82952F]/5 to-[#6d7d28]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}
+            className={`absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}
           ></div>
 
           {/* Animated border glow */}
@@ -180,7 +180,7 @@ const Services = ({ isDark }) => {
                 {service.id}
               </div>
               <div
-                className={`p-3 rounded-2xl bg-gradient-to-r ${gradientClass} transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 shadow-lg group-hover:shadow-[#82952F]/30`}
+                className={`p-3 rounded-2xl bg-gradient-to-r ${gradientClass} transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 shadow-lg group-hover:shadow-blue-500/30`}
               >
                 <IconComponent size={24} className="text-white" />
               </div>
@@ -192,7 +192,7 @@ const Services = ({ isDark }) => {
                   ? `text-transparent bg-gradient-to-r ${gradientClass} bg-clip-text`
                   : isDark
                   ? "text-white"
-                  : "text-gray-900"
+                  : "text-slate-900"
               }`}
             >
               {service.title}
@@ -200,7 +200,7 @@ const Services = ({ isDark }) => {
 
             <p
               className={`${
-                isDark ? "text-gray-300" : "text-gray-600"
+                isDark ? "text-slate-300" : "text-slate-600"
               } mb-6 leading-relaxed transition-colors duration-300`}
             >
               {service.description}
@@ -209,8 +209,8 @@ const Services = ({ isDark }) => {
             <button
               className={`group/btn flex items-center gap-3 font-semibold transition-all duration-300 hover:gap-4 ${
                 isDark
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
+                  ? "text-slate-300 hover:text-white"
+                  : "text-slate-700 hover:text-slate-900"
               }`}
             >
               <span
@@ -219,7 +219,7 @@ const Services = ({ isDark }) => {
                 Learn More
               </span>
               <div
-                className={`p-2 rounded-full bg-gradient-to-r ${gradientClass} group-hover:shadow-lg transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:rotate-12 group-hover:shadow-[#82952F]/40`}
+                className={`p-2 rounded-full bg-gradient-to-r ${gradientClass} group-hover:shadow-lg transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:rotate-12 group-hover:shadow-blue-500/40`}
               >
                 <ExternalLink size={16} className="text-white" />
               </div>
@@ -227,14 +227,14 @@ const Services = ({ isDark }) => {
           </div>
 
           {/* Shine effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#82952F]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl"></div>
 
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
             <div
               className="absolute inset-0"
               style={{
-                backgroundImage: `radial-gradient(circle at 1px 1px, rgba(130, 149, 47, 0.3) 1px, transparent 0)`,
+                backgroundImage: `radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.3) 1px, transparent 0)`,
                 backgroundSize: "20px 20px",
               }}
             ></div>
@@ -249,25 +249,25 @@ const Services = ({ isDark }) => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="text-[#82952F] text-sm font-semibold uppercase tracking-wider animate-fade-in-up">
+            <span className="text-blue-600 text-sm font-semibold uppercase tracking-wider animate-fade-in-up">
               What I Offer
             </span>
           </div>
           <h2
             className={`text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-slate-900"
             }`}
             style={{ animationDelay: "0.2s" }}
           >
             My{" "}
-            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
               Services
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#82952F] to-[#6d7d28] rounded-full animate-expand"></div>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-expand"></div>
             </span>
           </h2>
           <p
             className={`mt-6 text-lg max-w-2xl mx-auto animate-fade-in-up ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-slate-300" : "text-slate-600"
             }`}
             style={{ animationDelay: "0.6s" }}
           >
@@ -288,24 +288,24 @@ const Services = ({ isDark }) => {
           <div
             className={`inline-block p-8 rounded-3xl backdrop-blur-sm ${
               isDark
-                ? "bg-gray-800/50 border border-gray-700/50 hover:border-[#82952F]/30"
-                : "bg-white/70 border border-gray-200/50 hover:border-[#82952F]/40"
-            } animate-fade-in-up group hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-[#82952F]/10`}
+                ? "bg-slate-800/50 border border-slate-700/50 hover:border-blue-500/30"
+                : "bg-white/70 border border-slate-200/50 hover:border-blue-500/40"
+            } animate-fade-in-up group hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10`}
             style={{ animationDelay: "1s" }}
           >
             <h3
               className={`text-2xl font-bold mb-4 ${
-                isDark ? "text-white" : "text-gray-900"
+                isDark ? "text-white" : "text-slate-900"
               }`}
             >
               Ready to start your project?
             </h3>
-            <p className={`${isDark ? "text-gray-300" : "text-gray-600"} mb-6`}>
+            <p className={`${isDark ? "text-slate-300" : "text-slate-600"} mb-6`}>
               Let's discuss how I can help bring your ideas to life
             </p>
-            <button className="bg-gradient-to-r from-[#82952F] to-[#6d7d28] text-white px-8 py-4 rounded-full hover:shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-[#82952F]/40 relative overflow-hidden group font-semibold">
+            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full hover:shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-blue-500/40 relative overflow-hidden group font-semibold">
               <span className="relative z-10">Get Started Today</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#6d7d28] to-[#82952F] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </div>
         </div>

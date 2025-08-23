@@ -38,7 +38,7 @@ const Hero = ({ isDark }) => {
   return (
     <section
       className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
-        isDark ? "text-white" : "text-gray-900"
+        isDark ? "text-white" : "text-slate-800"
       }`}
     >
       {/* Animated background */}
@@ -46,29 +46,29 @@ const Hero = ({ isDark }) => {
         <div
           className={`absolute -inset-10 ${
             isDark
-              ? "bg-gradient-to-br from-gray-900 via-gray-800 to-black"
-              : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
+              ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700"
+              : "bg-gradient-to-br from-slate-50 via-white to-slate-100"
           }`}
         />
 
         {/* Floating orbs */}
         <div
-          className="absolute top-20 left-20 w-72 h-72 bg-[#82952F]/10 rounded-full blur-3xl animate-float"
+          className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "0s" }}
         />
         <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-[#9AAF3D]/10 rounded-full blur-3xl animate-float"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#6B7A26]/10 rounded-full blur-3xl animate-float"
+          className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "4s" }}
         />
 
         {/* Grid pattern */}
         <div
           className={`absolute inset-0 opacity-5 ${
-            isDark ? "bg-gray-400" : "bg-gray-600"
+            isDark ? "bg-slate-400" : "bg-slate-600"
           }`}
           style={{
             backgroundImage:
@@ -82,8 +82,8 @@ const Hero = ({ isDark }) => {
       <div className="relative z-10 text-center max-w-4xl px-6">
         {/* Greeting with animated background */}
         <div className="inline-block relative mb-6">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#82952F]/20 to-[#9AAF3D]/20 rounded-full blur-lg animate-pulse" />
-          <div className="relative text-lg bg-gradient-to-r from-[#82952F] to-[#9AAF3D] bg-clip-text text-transparent font-semibold px-6 py-2">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-lg animate-pulse" />
+          <div className="relative text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold px-6 py-2">
             👋 Hello there!
           </div>
         </div>
@@ -92,17 +92,17 @@ const Hero = ({ isDark }) => {
         <h1 className="text-4xl md:text-7xl font-black leading-tight mb-8">
           I'm{" "}
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
               Jaybie
             </span>
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#82952F]/20 to-[#9AAF3D]/20 blur-lg rounded-lg" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-lg rounded-lg" />
           </span>
           , <br className="hidden sm:block" />
-          <span className={`${isDark ? "text-gray-200" : "text-gray-700"}`}>
+          <span className={`${isDark ? "text-slate-200" : "text-slate-700"}`}>
             Web Developer
           </span>
           <br className="hidden sm:block" />
-          <span className="text-2xl md:text-4xl font-normal bg-gradient-to-r from-[#82952F] to-[#6B7A26] bg-clip-text text-transparent">
+          <span className="text-2xl md:text-4xl font-normal bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             based in Philippines
           </span>
         </h1>
@@ -112,18 +112,18 @@ const Hero = ({ isDark }) => {
           <div
             className={`absolute inset-0 rounded-2xl blur-sm ${
               isDark
-                ? "bg-gray-800/30 border border-gray-700/50"
-                : "bg-white/50 border border-gray-200/50"
+                ? "bg-slate-800/30 border border-slate-700/50"
+                : "bg-white/50 border border-slate-200/50"
             }`}
             style={{ backdropFilter: "blur(10px)" }}
           />
           <p
             className={`relative text-lg md:text-xl font-mono p-6 rounded-2xl ${
-              isDark ? "text-gray-200" : "text-gray-700"
+              isDark ? "text-slate-200" : "text-slate-700"
             }`}
           >
             {displayedText}
-            <span className="inline-block w-[3px] h-6 ml-1 bg-gradient-to-b from-[#82952F] to-[#9AAF3D] animate-blink rounded-full" />
+            <span className="inline-block w-[3px] h-6 ml-1 bg-gradient-to-b from-blue-500 to-purple-500 animate-blink rounded-full" />
           </p>
         </div>
 
@@ -134,7 +134,7 @@ const Hero = ({ isDark }) => {
             className="group relative px-12 py-4 rounded-full font-bold text-lg text-white hover:scale-105 transform transition-all duration-300 shadow-2xl overflow-hidden"
             style={{
               background:
-                "linear-gradient(135deg, #82952F 0%, #9AAF3D 25%, #82952F 50%, #A8B84A 75%, #82952F 100%)",
+                "linear-gradient(135deg, #2563eb 0%, #7c3aed 25%, #2563eb 50%, #06b6d4 75%, #2563eb 100%)",
               backgroundSize: "200% 200%",
               animation: "gradientShift 4s ease infinite",
             }}
@@ -151,7 +151,7 @@ const Hero = ({ isDark }) => {
             </span>
 
             {/* Glow effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#82952F] to-[#9AAF3D] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
           </button>
         </div>
 
@@ -168,12 +168,12 @@ const Hero = ({ isDark }) => {
                 key={index}
                 className={`group relative p-4 rounded-2xl hover:scale-110 transition-all duration-300 ${
                   isDark
-                    ? "bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white border border-gray-700/50"
-                    : "bg-white/50 hover:bg-gray-50/80 text-gray-600 hover:text-gray-900 border border-gray-200/50"
+                    ? "bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 hover:text-white border border-slate-700/50"
+                    : "bg-white/50 hover:bg-slate-50/80 text-slate-600 hover:text-slate-900 border border-slate-200/50"
                 } backdrop-blur-sm shadow-lg hover:shadow-xl`}
                 title={social.label}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#82952F]/0 to-[#9AAF3D]/0 group-hover:from-[#82952F]/10 group-hover:to-[#9AAF3D]/10 rounded-2xl transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-2xl transition-all duration-300" />
                 <IconComponent size={24} className="relative z-10" />
               </button>
             );

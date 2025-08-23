@@ -59,21 +59,21 @@ const Contact = ({ isDark = false }) => {
       label: "Email",
       value: "jaybie1909@gmail.com",
       href: "mailto:jaybie1909@gmail.com",
-      gradient: ["#6B8E23", "#82952F"], // darker to #82952F
+      gradient: ["#2563eb", "#7c3aed"],
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+63-919-374-1599",
       href: "tel:+63-919-374-1599",
-      gradient: ["#7DAA36", "#82952F"],
+      gradient: ["#7c3aed", "#06b6d4"],
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Philippines",
       href: "#",
-      gradient: ["#90B63F", "#82952F"],
+      gradient: ["#06b6d4", "#2563eb"],
     },
   ];
 
@@ -90,13 +90,13 @@ const Contact = ({ isDark = false }) => {
       required: true,
       className: `w-full p-4 rounded-2xl border transition-all duration-300 backdrop-blur-sm ${
         focusedField === name
-          ? `border-[#82952F] ${isDark ? "bg-gray-700/50" : "bg-white/90"}`
+          ? `border-blue-500 ${isDark ? "bg-slate-700/50" : "bg-white/90"}`
           : `${
               isDark
-                ? "bg-gray-700/30 border-gray-600 text-white"
-                : "bg-white/50 border-gray-300 text-gray-900"
+                ? "bg-slate-700/30 border-slate-600 text-white"
+                : "bg-white/50 border-slate-300 text-slate-900"
             }`
-      } placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#82952F] ${
+      } placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 ${
         isTextArea ? "resize-none" : ""
       }`,
     };
@@ -111,7 +111,7 @@ const Contact = ({ isDark = false }) => {
     <section
       id="contact"
       className={`relative py-24 px-6 overflow-hidden ${
-        isDark ? "bg-transparent text-white" : "bg-transparent text-gray-900"
+        isDark ? "bg-transparent text-white" : "bg-transparent text-slate-900"
       }`}
     >
       <div className="relative max-w-7xl mx-auto">
@@ -120,12 +120,12 @@ const Contact = ({ isDark = false }) => {
           <div className="inline-flex items-center gap-2 mb-4">
             <MessageCircle
               className={`w-6 h-6 ${
-                isDark ? "text-[#82952F]" : "text-[#82952F]"
+                isDark ? "text-blue-400" : "text-blue-600"
               }`}
             />
             <span
               className={`text-sm font-semibold uppercase tracking-wider ${
-                isDark ? "text-[#82952F]" : "text-[#82952F]"
+                isDark ? "text-blue-400" : "text-blue-600"
               }`}
             >
               Let's Connect
@@ -133,14 +133,14 @@ const Contact = ({ isDark = false }) => {
           </div>
           <h2
             className={`text-5xl md:text-6xl font-black mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-slate-900"
             }`}
           >
-            <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">Get In Touch</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">Get In Touch</span>
           </h2>
           <p
             className={`text-xl max-w-2xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-slate-300" : "text-slate-600"
             }`}
           >
             Ready to bring your ideas to life? Let's discuss your next project.
@@ -153,23 +153,23 @@ const Contact = ({ isDark = false }) => {
             <div
               className={`p-8 rounded-3xl backdrop-blur-lg border shadow-xl ${
                 isDark
-                  ? "bg-gray-800/50 border-gray-700"
-                  : "bg-white/70 border-gray-200"
+                  ? "bg-slate-800/50 border-slate-700"
+                  : "bg-white/70 border-slate-200"
               }`}
             >
               <h3
                 className={`text-3xl font-bold mb-6 ${
-                  isDark ? "text-white" : "text-gray-900"
+                  isDark ? "text-white" : "text-slate-900"
                 }`}
               >
                 Let's Start a Conversation
               </h3>
               <p
                 className={`text-lg leading-relaxed mb-8 ${
-                  isDark ? "text-gray-300" : "text-gray-600"
+                  isDark ? "text-slate-300" : "text-slate-600"
                 }`}
               >
-                I'm available for new projects — drop me a message and I’ll
+                I'm available for new projects — drop me a message and I'll
                 reply within 24 hours.
               </p>
 
@@ -179,7 +179,7 @@ const Contact = ({ isDark = false }) => {
                     key={index}
                     href={item.href}
                     className={`flex items-center gap-6 p-4 rounded-2xl transition-all duration-300 hover:scale-105 ${
-                      isDark ? "hover:bg-gray-700/50" : "hover:bg-gray-100/70"
+                      isDark ? "hover:bg-slate-700/50" : "hover:bg-slate-100/70"
                     } backdrop-blur-sm`}
                   >
                     <div
@@ -194,7 +194,7 @@ const Contact = ({ isDark = false }) => {
                     <div className="flex-1">
                       <div
                         className={`font-semibold text-lg ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-slate-900"
                         }`}
                       >
                         {item.label}
@@ -210,7 +210,7 @@ const Contact = ({ isDark = false }) => {
                     </div>
                     <ArrowRight
                       className={`w-5 h-5 opacity-0 hover:opacity-100 transition-all ${
-                        isDark ? "text-gray-400" : "text-gray-500"
+                        isDark ? "text-slate-400" : "text-slate-500"
                       }`}
                     />
                   </a>
@@ -227,12 +227,12 @@ const Contact = ({ isDark = false }) => {
             >
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-3 h-3 bg-[#82952F] rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 w-3 h-3 bg-[#82952F] rounded-full animate-ping"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
                 </div>
                 <span
                   className={`font-medium ${
-                    isDark ? "text-[#82952F]" : "text-[#82952F]"
+                    isDark ? "text-green-400" : "text-green-700"
                   }`}
                 >
                   Available for new projects
@@ -246,8 +246,8 @@ const Contact = ({ isDark = false }) => {
             onSubmit={handleSubmit}
             className={`p-8 rounded-3xl backdrop-blur-lg border shadow-xl ${
               isDark
-                ? "bg-gray-800/50 border-gray-700"
-                : "bg-white/70 border-gray-200"
+                ? "bg-slate-800/50 border-slate-700"
+                : "bg-white/70 border-slate-200"
             } space-y-6`}
           >
             {renderInput("text", "name", "Your Name")}
@@ -261,8 +261,8 @@ const Contact = ({ isDark = false }) => {
               className={`w-full p-4 rounded-2xl font-semibold text-lg transition-all duration-300 relative overflow-hidden group ${
                 isSubmitted
                   ? "bg-green-500 text-white"
-                  : "bg-[#82952F] text-white hover:shadow-xl hover:shadow-[#82952F]/40"
-              } disabled:opacity-75 focus:outline-none focus:ring-4 focus:ring-[#82952F]/30`}
+                  : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-xl hover:shadow-blue-500/40"
+              } disabled:opacity-75 focus:outline-none focus:ring-4 focus:ring-blue-500/30`}
             >
               <div className="flex items-center justify-center gap-3">
                 {isSubmitting ? (
@@ -287,6 +287,18 @@ const Contact = ({ isDark = false }) => {
           </form>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes gradient-x {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        .animate-gradient-x { 
+          background-size: 200% 200%;
+          animation: gradient-x 3s ease infinite; 
+        }
+      `}</style>
     </section>
   );
 };

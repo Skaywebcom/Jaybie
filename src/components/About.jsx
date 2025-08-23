@@ -68,7 +68,7 @@ const About = ({ isDark }) => {
       ref={sectionRef}
       id="about"
       className={`py-20 px-6 relative overflow-hidden ${
-        isDark ? "text-white" : "text-gray-900"
+        isDark ? "text-white" : "text-slate-800"
       }`}
     >
       {/* Enhanced animated background */}
@@ -76,33 +76,33 @@ const About = ({ isDark }) => {
         <div 
           className={`absolute -inset-10 ${
             isDark 
-              ? "bg-gradient-to-br from-gray-900 via-gray-800 to-black" 
-              : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
+              ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700" 
+              : "bg-gradient-to-br from-slate-50 via-white to-slate-100"
           }`}
         />
         
         {/* Multiple floating orbs */}
         <div 
-          className="absolute top-32 left-16 w-80 h-80 bg-[#82952F]/10 rounded-full blur-3xl animate-float"
+          className="absolute top-32 left-16 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: '0s' }}
         />
         <div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-[#9AAF3D]/10 rounded-full blur-3xl animate-float"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: '2s' }}
         />
         <div 
-          className="absolute top-1/3 right-1/4 w-72 h-72 bg-[#6B7A26]/10 rounded-full blur-3xl animate-float"
+          className="absolute top-1/3 right-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: '4s' }}
         />
         <div 
-          className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-[#A8B84A]/10 rounded-full blur-3xl animate-float"
+          className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: '1s' }}
         />
         
         {/* Grid pattern overlay */}
         <div 
           className={`absolute inset-0 opacity-5 ${
-            isDark ? "bg-gray-400" : "bg-gray-600"
+            isDark ? "bg-slate-400" : "bg-slate-600"
           }`}
           style={{
             backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
@@ -115,8 +115,8 @@ const About = ({ isDark }) => {
         {/* Enhanced Header */}
         <div className="text-center mb-20">
           <div className="inline-block relative mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#82952F]/20 to-[#9AAF3D]/20 rounded-full blur-lg animate-pulse" />
-            <div className="relative bg-gradient-to-r from-[#82952F] to-[#9AAF3D] bg-clip-text text-transparent text-sm font-bold uppercase tracking-wider px-6 py-2">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-lg animate-pulse" />
+            <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-sm font-bold uppercase tracking-wider px-6 py-2">
               Get To Know More
             </div>
           </div>
@@ -124,15 +124,15 @@ const About = ({ isDark }) => {
           <h2 className="text-5xl md:text-7xl font-black mb-6">
             About{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-[#82952F] via-[#9AAF3D] to-[#82952F] bg-clip-text text-transparent animate-gradient-x">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
                 Me
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#82952F]/20 to-[#9AAF3D]/20 blur-lg rounded-lg" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-lg rounded-lg" />
             </span>
           </h2>
           
           <p className={`text-xl max-w-2xl mx-auto ${
-            isDark ? "text-gray-300" : "text-gray-600"
+            isDark ? "text-slate-300" : "text-slate-600"
           }`}>
             Passionate developer crafting digital experiences with modern technologies
           </p>
@@ -145,25 +145,25 @@ const About = ({ isDark }) => {
               {
                 text: "I am an experienced Frontend Developer with over 5 years of professional expertise in the field.",
                 icon: "🚀",
-                gradient: "from-[#82952F] to-[#9AAF3D]"
+                gradient: "from-blue-600 to-purple-600"
               },
               {
                 text: "Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.",
                 icon: "🤝",
-                gradient: "from-[#9AAF3D] to-[#6B7A26]"
+                gradient: "from-purple-600 to-cyan-500"
               },
               {
                 text: "My passion for frontend development is not only reflected in my extensive experience but also in the enthusiasm and dedication I bring to each project.",
                 icon: "💡",
-                gradient: "from-[#6B7A26] to-[#82952F]"
+                gradient: "from-cyan-500 to-blue-600"
               },
             ].map((item, index) => (
               <div
                 key={index}
                 className={`group relative p-8 rounded-3xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 ${
                   isDark
-                    ? "bg-gray-800/40 backdrop-blur-lg border border-gray-700/50 hover:border-gray-500/70 hover:bg-gray-800/60"
-                    : "bg-white/70 backdrop-blur-lg border border-gray-200/50 hover:border-gray-400/70 hover:bg-white/90"
+                    ? "bg-slate-800/40 backdrop-blur-lg border border-slate-700/50 hover:border-slate-500/70 hover:bg-slate-800/60"
+                    : "bg-white/70 backdrop-blur-lg border border-slate-200/50 hover:border-slate-400/70 hover:bg-white/90"
                 } hover:shadow-2xl shadow-lg`}
                 style={{
                   animationDelay: `${index * 0.2}s`,
@@ -181,7 +181,7 @@ const About = ({ isDark }) => {
                   </div>
                   <div className="flex-1">
                     <p className={`text-lg leading-relaxed ${
-                      isDark ? "text-gray-300" : "text-gray-700"
+                      isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
                       {item.text}
                     </p>
@@ -197,8 +197,8 @@ const About = ({ isDark }) => {
                   key={index}
                   className={`group relative text-center p-8 rounded-3xl transition-all duration-700 hover:scale-110 hover:-translate-y-4 cursor-pointer ${
                     isDark
-                      ? "bg-gray-800/50 backdrop-blur-lg border border-gray-700/50 hover:border-gray-500/70"
-                      : "bg-white/80 backdrop-blur-lg border border-gray-200/50 hover:border-gray-400/70"
+                      ? "bg-slate-800/50 backdrop-blur-lg border border-slate-700/50 hover:border-slate-500/70"
+                      : "bg-white/80 backdrop-blur-lg border border-slate-200/50 hover:border-slate-400/70"
                   } hover:shadow-2xl shadow-lg overflow-hidden`}
                   style={{
                     animationDelay: `${0.8 + index * 0.1}s`,
@@ -208,17 +208,17 @@ const About = ({ isDark }) => {
                   }}
                 >
                   {/* Gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#82952F]/5 via-transparent to-[#9AAF3D]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
                     <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
                       {stat.icon}
                     </div>
-                    <div className="text-4xl font-black mb-2 bg-gradient-to-r from-[#82952F] to-[#9AAF3D] bg-clip-text text-transparent">
+                    <div className="text-4xl font-black mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                       {animatedStats[index]}{stat.suffix}
                     </div>
                     <div className={`text-sm font-semibold uppercase tracking-wider ${
-                      isDark ? "text-gray-400" : "text-gray-600"
+                      isDark ? "text-slate-400" : "text-slate-600"
                     }`}>
                       {stat.label}
                     </div>
@@ -232,25 +232,25 @@ const About = ({ isDark }) => {
           <div className="relative">
             <div className={`relative p-10 rounded-3xl backdrop-blur-lg ${
               isDark
-                ? "bg-gray-800/50 border border-gray-700/50"
-                : "bg-white/80 border border-gray-200/50"
+                ? "bg-slate-800/50 border border-slate-700/50"
+                : "bg-white/80 border border-slate-200/50"
             } shadow-2xl overflow-hidden`}>
               
               {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#82952F]/5 via-transparent to-[#9AAF3D]/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#82952F] to-[#9AAF3D] flex items-center justify-center text-2xl shadow-lg animate-bounce">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-2xl shadow-lg animate-bounce">
                     🛠️
                   </div>
                   <div>
                     <h3 className="text-3xl font-black mb-2">
-                      <span className="bg-gradient-to-r from-[#82952F] to-[#9AAF3D] bg-clip-text text-transparent">
+                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                         Technical Skills
                       </span>
                     </h3>
-                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    <p className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"}`}>
                       Technologies I work with
                     </p>
                   </div>
@@ -267,13 +267,13 @@ const About = ({ isDark }) => {
                         hoveredCategory === category
                           ? "text-white scale-105 shadow-lg"
                           : isDark
-                          ? "bg-gray-700/50 text-gray-300 hover:bg-gray-700/70 border border-gray-600/50"
-                          : "bg-gray-100/50 text-gray-700 hover:bg-gray-200/70 border border-gray-300/50"
+                          ? "bg-slate-700/50 text-slate-300 hover:bg-slate-700/70 border border-slate-600/50"
+                          : "bg-slate-100/50 text-slate-700 hover:bg-slate-200/70 border border-slate-300/50"
                       }`}
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       {hoveredCategory === category && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#82952F] to-[#9AAF3D] animate-gradient-x" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient-x" />
                       )}
                       <span className="relative z-10">{category}</span>
                     </button>
@@ -291,8 +291,8 @@ const About = ({ isDark }) => {
                           : "opacity-100 scale-100"
                       } ${
                         isDark
-                          ? "bg-gray-700/40 border border-gray-600/30 hover:border-gray-500/50 hover:bg-gray-700/60"
-                          : "bg-gray-50/50 border border-gray-300/30 hover:border-gray-400/50 hover:bg-white/70"
+                          ? "bg-slate-700/40 border border-slate-600/30 hover:border-slate-500/50 hover:bg-slate-700/60"
+                          : "bg-slate-50/50 border border-slate-300/30 hover:border-slate-400/50 hover:bg-white/70"
                       } hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl`}
                       onMouseEnter={() => setActiveSkillIndex(index)}
                       onMouseLeave={() => setActiveSkillIndex(null)}
@@ -305,27 +305,27 @@ const About = ({ isDark }) => {
                     >
                       {/* Hover gradient background */}
                       {activeSkillIndex === index && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#82952F]/10 to-[#9AAF3D]/10 animate-pulse" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 animate-pulse" />
                       )}
                       
                       <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#82952F]/20 to-[#9AAF3D]/20 flex items-center justify-center text-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                             {skill.logo}
                           </div>
                           <div className="flex-1">
                             <div className={`font-bold text-sm ${
-                              isDark ? "text-gray-200" : "text-gray-800"
+                              isDark ? "text-slate-200" : "text-slate-800"
                             }`}>
                               {skill.name}
                             </div>
                             <div className={`text-xs ${
-                              isDark ? "text-gray-400" : "text-gray-500"
+                              isDark ? "text-slate-400" : "text-slate-500"
                             }`}>
                               {skill.category}
                             </div>
                           </div>
-                          <div className="text-sm font-black bg-gradient-to-r from-[#82952F] to-[#9AAF3D] bg-clip-text text-transparent">
+                          <div className="text-sm font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                             {skill.level}%
                           </div>
                         </div>
@@ -333,10 +333,10 @@ const About = ({ isDark }) => {
                         {/* Enhanced progress bar */}
                         <div className="relative">
                           <div className={`w-full h-2 rounded-full overflow-hidden ${
-                            isDark ? "bg-gray-600/50" : "bg-gray-200/50"
+                            isDark ? "bg-slate-600/50" : "bg-slate-200/50"
                           }`}>
                             <div
-                              className="h-full rounded-full bg-gradient-to-r from-[#82952F] to-[#9AAF3D] relative overflow-hidden shadow-lg"
+                              className="h-full rounded-full bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden shadow-lg"
                               style={{
                                 width: isVisible ? `${skill.level}%` : "0%",
                                 transition: "width 1.5s ease-out",

@@ -17,12 +17,12 @@ const App = () => {
   return (
     <div
       className={`min-h-screen transition-colors duration-300 relative z-0 ${
-        isDark ? "dark text-white" : "text-gray-900"
+        isDark ? "dark text-white" : "text-slate-800"
       }`}
       style={{
         backgroundImage: isDark
-          ? "linear-gradient(135deg, #1a1a1a, #333333)" // optional dark mode gradient
-          : "linear-gradient(135deg, #B8DACA 0%, #BEEDFD 50%, #FEE1DD 100%)",
+          ? "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)"
+          : "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)",
       }}
     >
       <Navbar

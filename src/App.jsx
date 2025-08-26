@@ -30,15 +30,16 @@ const App = () => {
     document.addEventListener('mousemove', handleMouseMove);
 
     const animate = () => {
-      position.current.x += (mouse.current.x - position.current.x) * 0.1;
-      position.current.y += (mouse.current.y - position.current.y) * 0.1;
+  // Dot follows instantly
+  dotRef.current.style.transform = `translate3d(${mouse.current.x -6}px, ${mouse.current.y-6}px, 0)`;
 
-      if(dotRef.current && outlineRef.current) {
-        dotRef.current.style.transform = `translate3d(${position.current.x -6}px, ${position.current.y-6}px, 0)`;
-        outlineRef.current.style.transform = `translate3d(${position.current.x -20}px, ${position.current.y-20}px, 0)`;
-      } 
-      requestAnimationFrame(animate);
-    }
+  // Outline follows smoothly (trailing effect)
+  position.current.x += (mouse.current.x - position.current.x) * 0.5;
+  position.current.y += (mouse.current.y - position.current.y) * 0.5;
+  outlineRef.current.style.transform = `translate3d(${position.current.x -20}px, ${position.current.y-20}px, 0)`;
+
+  requestAnimationFrame(animate);
+};
     animate();
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);

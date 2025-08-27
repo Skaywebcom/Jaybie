@@ -71,7 +71,7 @@ const Contact = ({ isDark = false }) => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Philippines",
+      value: "Indonesia",
       href: "#",
       gradient: ["#06b6d4", "#2563eb"],
     },

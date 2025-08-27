@@ -189,14 +189,14 @@ const Footer = ({ isDark = false }) => {
                       isDark ? "text-slate-400" : "text-slate-500"
                     }`}
                   >
-                    Philippines Time
+                    Indonesia Time
                   </p>
                   <p
                     className={`text-lg font-mono ${
                       isDark ? "text-white" : "text-slate-900"
                     }`}
                   >
-                    {currentTime.toLocaleTimeString("en-SG", {
+                    {currentTime.toLocaleTimeString("en-ID", {
                       hour12: false,
                       hour: "2-digit",
                       minute: "2-digit",

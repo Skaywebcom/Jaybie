@@ -111,7 +111,7 @@ const Portfolio = ({ isDark = false }) => {
   };
 
   return (
-    <section id="portfolio" className="relative py-4 px-6 overflow-hidden">
+    <section id="portfolio" className="relative py-2 px-6 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div

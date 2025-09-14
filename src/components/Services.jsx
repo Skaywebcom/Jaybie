@@ -67,21 +67,30 @@ const Services = ({ isDark }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const handleInitialVisibility = () => {
+    if (window.innerWidth < 768) { // small screens
+      setIsVisible(true);
     }
+  };
 
-    return () => observer.disconnect();
-  }, []);
+  handleInitialVisibility(); // check on mount
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => observer.disconnect();
+}, []);
+
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();

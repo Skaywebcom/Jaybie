@@ -67,7 +67,8 @@ const projects = [
 const Portfolio = ({ isDark = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const cardHeight = "h-96"; // Fix for cardHeight error
 
   useEffect(() => {
     if (!isAutoPlay) return;
@@ -95,8 +96,8 @@ const Portfolio = ({ isDark = false }) => {
   const getVisibleProjects = () => {
     if (!projects) return [];
     const result = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % projects.length;
+    for (let i = -1; i <= 1; i++) {
+      const index = (currentIndex + i + projects.length) % projects.length;
       result.push({ ...projects[index], position: i });
     }
     return result;
@@ -139,40 +140,48 @@ const Portfolio = ({ isDark = false }) => {
           </button>
 
           {/* Cards */}
-          <div className="relative w-full max-w-5xl h-full flex justify-center items-center gap-6">
-  {getVisibleProjects().map((project, idx) => {
-    const isCenter = idx === 1;
-    const scale = isCenter ? 1 : 0.8;
-    const opacity = isCenter ? 1 : 0.6;
+          <div className="relative w-full max-w-5xl h-full flex justify-center items-center gap-6 overflow-hidden">
+            {getVisibleProjects().map((project, idx) => {
+              const isCenter = project.position === 0;
+              const scale = isCenter ? 1 : 0.8;
+              const opacity = isCenter ? 1 : 0.5;
+              const translateX = project.position * 200; // side cards spacing
 
-    return (
-      <div
-        key={project?.id}
-        className={`transition-transform duration-500 cursor-pointer`}
-        style={{
-          transform: `scale(${scale})`,
-          opacity: opacity,
-          zIndex: isCenter ? 10 : 5,
-        }}
-        onClick={() => { if (!isCenter) setCurrentIndex((currentIndex + (idx > 1 ? 1 : -1) + projects.length) % projects.length); }}
-      >
+              return (
+                <div
+                  key={project.id}
+                  className={`absolute transition-transform duration-500 cursor-pointer`}
+                  style={{
+                    transform: `translateX(${translateX}px) scale(${scale})`,
+                    opacity,
+                    zIndex: isCenter ? 10 : 5,
+                  }}
+                  onClick={() => {
+                    if (!isCenter) setCurrentIndex((currentIndex + project.position + projects.length) % projects.length);
+                  }}
+                >
                   <div className={`${cardHeight} w-72 rounded-2xl overflow-hidden shadow-xl ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} p-3 flex flex-col`}>
                     <div className="flex-1 relative">
-                      <img src={project?.image} alt={project?.title} className="w-full h-full object-cover rounded-lg" />
-                      {project?.category && (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-lg" />
+                      {project.category && (
                         <div className="absolute top-2 left-2 px-2 py-1 text-xs font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full">{project.category}</div>
                       )}
-                      <div className="absolute top-2 right-2 flex gap-1">{[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 text-yellow-400" />)}</div>
+                      <div className="absolute top-2 right-2 flex gap-1">
+                        {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 text-yellow-400" />)}
+                      </div>
                     </div>
-                    <h3 className={`text-sm md:text-lg font-bold mt-2 ${isDark ? "text-white" : "text-slate-900"}`}>{project?.title}</h3>
-                    <p className={`text-xs md:text-sm flex-1 ${isDark ? "text-slate-300" : "text-slate-600"}`}>{project?.description}</p>
+                    <h3 className={`text-sm md:text-lg font-bold mt-2 ${isDark ? "text-white" : "text-slate-900"}`}>{project.title}</h3>
+                    <p className={`text-xs md:text-sm flex-1 ${isDark ? "text-slate-300" : "text-slate-600"}`}>{project.description}</p>
                     <div className="flex flex-wrap gap-1 mt-1">
-                      {project?.tech?.map((tech, i) => (
+                      {project.tech.map((tech, i) => (
                         <span key={i} className="text-[9px] md:text-xs px-1 py-0.5 bg-slate-200 text-slate-800 rounded">{tech}</span>
                       ))}
                     </div>
-                    {project?.url && (
-                      <button onClick={(e) => { e.stopPropagation(); handleProjectClick(project.url); }} className="mt-2 w-full py-1 text-xs md:text-sm font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:scale-105 transition-all flex justify-center items-center gap-1">
+                    {project.url && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleProjectClick(project.url); }}
+                        className="mt-2 w-full py-1 text-xs md:text-sm font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:scale-105 transition-all flex justify-center items-center gap-1"
+                      >
                         <ExternalLink className="w-3 h-3" /> Visit
                       </button>
                     )}
@@ -185,7 +194,7 @@ const Portfolio = ({ isDark = false }) => {
 
         {/* Dots */}
         <div className="flex gap-1 mb-2">
-          {projects?.map((_, idx) => (
+          {projects.map((_, idx) => (
             <button key={idx} onClick={() => goToSlide(idx)} className={`w-2 h-2 rounded-full ${idx === currentIndex ? "bg-blue-600 scale-125" : "bg-slate-400"}`} />
           ))}
         </div>

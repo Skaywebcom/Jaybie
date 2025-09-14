@@ -64,8 +64,8 @@ const Contact = ({ isDark = false }) => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+63-919-374-1599",
-      href: "tel:+63-919-374-1599",
+      value: "+62-851-1762-6717",
+      href: "tel:+62-851-1762-6717",
       gradient: ["#7c3aed", "#06b6d4"],
     },
     {

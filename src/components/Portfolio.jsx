@@ -155,7 +155,7 @@ const Portfolio = ({ isDark = false }) => {
             </span>
           </h2>
           <p
-            className={`text-xl max-w-2xl mx-auto ${
+            className={`text-xl max-w-2xl mx-auto mb-2 ${
               isDark ? "text-slate-300" : "text-slate-600"
             }`}
           >
@@ -164,7 +164,7 @@ const Portfolio = ({ isDark = false }) => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative">
+        <div className="relative -mt-2">
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}

@@ -139,28 +139,23 @@ const Portfolio = ({ isDark = false }) => {
           </button>
 
           {/* Cards */}
-          <div className="relative w-full max-w-5xl h-full flex justify-center items-center">
-            {getVisibleProjects().map((project, idx) => {
-              const isCenter = idx === 1;
-              const scale = isCenter ? 1 : 0.8;
-              const opacity = isCenter ? 1 : 0.6;
-              const offset = (idx - 1) * 280; // distance between cards
-              const cardHeight = "h-[320px] md:h-[380px]";
+          <div className="relative w-full max-w-5xl h-full flex justify-center items-center gap-6">
+  {getVisibleProjects().map((project, idx) => {
+    const isCenter = idx === 1;
+    const scale = isCenter ? 1 : 0.8;
+    const opacity = isCenter ? 1 : 0.6;
 
-              return (
-                <div
-                  key={`${project?.id}-${currentIndex}-${idx}`}
-                  className={`absolute transition-all duration-500 cursor-pointer`}
-                  style={{
-                    left: `50%`,
-                    transform: `translateX(${offset}px) scale(${scale})`,
-                    opacity: opacity,
-                    zIndex: isCenter ? 10 : 5
-                  }}
-                  onMouseEnter={() => { setHoveredCard(project?.id); setIsAutoPlay(false); }}
-                  onMouseLeave={() => { setHoveredCard(null); setIsAutoPlay(true); }}
-                  onClick={() => { if (!isCenter) setCurrentIndex((currentIndex + (idx > 1 ? 1 : -1) + projects.length) % projects.length); }}
-                >
+    return (
+      <div
+        key={project?.id}
+        className={`transition-transform duration-500 cursor-pointer`}
+        style={{
+          transform: `scale(${scale})`,
+          opacity: opacity,
+          zIndex: isCenter ? 10 : 5,
+        }}
+        onClick={() => { if (!isCenter) setCurrentIndex((currentIndex + (idx > 1 ? 1 : -1) + projects.length) % projects.length); }}
+      >
                   <div className={`${cardHeight} w-72 rounded-2xl overflow-hidden shadow-xl ${isDark ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"} p-3 flex flex-col`}>
                     <div className="flex-1 relative">
                       <img src={project?.image} alt={project?.title} className="w-full h-full object-cover rounded-lg" />

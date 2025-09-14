@@ -111,7 +111,7 @@ const Portfolio = ({ isDark = false }) => {
   };
 
   return (
-    <section id="portfolio" className="relative py-6 px-6 overflow-hidden">
+    <section id="portfolio" className="relative py-4 px-6 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div
@@ -193,7 +193,8 @@ const Portfolio = ({ isDark = false }) => {
           </button>
 
           {/* Carousel Track */}
-          <div className="flex justify-center items-center min-h-[600px] perspective-1000">
+          <div className="flex justify-center items-center min-h-[400px] md:min-h-[500px] lg:min-h-[600px] perspective-1000">
+
             <div className="relative w-full max-w-6xl">
               {getVisibleProjects().map((project, idx) => {
                 const isCenter = idx === 1;

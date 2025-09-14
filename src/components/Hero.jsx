@@ -130,7 +130,7 @@ const Hero = ({ isDark }) => {
         {/* Enhanced gradient button */}
         <div className="mb-10">
           <button
-            onClick={() => window.open('https://wa.me/639193741599?text=Hi!%20I’m%20interested%20in%20your%20free%20web%20design%20offer.', '_blank')}
+            onClick={() => window.open('https://wa.me/6285117626717?text=Hi!%20I’m%20interested%20in%20your%20free%20web%20design%20offer.', '_blank')}
 
             className="group relative px-12 py-4 rounded-full font-bold text-lg text-white hover:scale-105 transform transition-all duration-300 shadow-2xl overflow-hidden"
             style={{

@@ -165,7 +165,7 @@ const Navbar = ({ isDark, toggleTheme, isMenuOpen, toggleMenu }) => {
             {/* Hire Me */}
             <button
               onClick={() =>
-                window.open("https://wa.me/639193741599", "_blank")
+                window.open("https://wa.me/6285117626717", "_blank")
               }
               className="hidden md:flex items-center gap-2 text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-all relative overflow-hidden group"
               style={{

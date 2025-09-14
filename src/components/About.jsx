@@ -44,7 +44,7 @@ const categorizedSkills = {
 };
 
 const stats = [
-  { value: 5, label: "years of experience", suffix: "+", icon: "🚀" },
+  { value: 3, label: "years of experience", suffix: "+", icon: "🚀" },
   { value: 50, label: "projects completed", suffix: "+", icon: "💼" },
   { value: 40, label: "happy clients", suffix: "+", icon: "😊" },
 ];
@@ -149,7 +149,7 @@ const About = ({ isDark }) => {
           <div className="space-y-6 sm:space-y-8">
             {[
               {
-                text: "I am an experienced Frontend Developer with over 5 years of professional expertise in the field.",
+                text: "I am an experienced Frontend Developer with over 3 years of professional expertise in the field.",
                 icon: "🚀",
                 gradient: "from-blue-600 to-purple-600",
               },
